@@ -1,0 +1,14 @@
+# netbeans project directory
+nbproject/*
+
+# yii runtime directories
+backend/protected/runtime/*
+frontend/protected/runtime/*
+assets/*
+
+# composer
+vendor/*
+composer.lock
+
+# apache logs
+logs/*

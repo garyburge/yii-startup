@@ -1,0 +1,66 @@
+{
+	"name": "garyburge/yii-startup",
+	"description": "A start up application using Yii framework (http://yiiframework.com)",
+	"keywords": ["yii", "webapp"],
+	"homepage": "https://github.com/garyburge/yii-startup",
+	"type": "library",
+	"license": "BSD-3-Clause",
+	"authors": [
+		{
+			"name": "Gary Burge",
+			"email": "garyburge@garyburge.com",
+			"homepage": "http://garyburge.com"
+		}
+	],
+	"minimum-stability": "dev",
+    "repositories":[
+        {
+            "type":"composer",
+            "url":"http://packages.phundament.com"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "Borales/yii-MultidomainClientScript",
+                "version": "master",
+                "dist": {
+                    "url": "https://github.com/Borales/yii-MultidomainClientScript/archive/master.zip",
+                    "type": "zip"
+                },
+                "source": {
+                    "url": "https://github.com/Borales/yii-MultidomainClientScript",
+                    "type": "git",
+                    "reference": "master"
+                },
+                "autoload": {
+                     "classmap": "."
+                }
+            }
+        }
+    ],
+	"require": {
+		"php": ">=5.3.2",
+        "yiiext/migrate-command":"0.7.2",
+		"yiisoft/yii":"1.1.13",
+        "clevertech/yiibooster":"1.0.6",
+        "Borales/yii-MultidomainClientScript": "dev-master"
+	},
+	"autoload": {
+		"psr-0": {
+            "console": "common"
+		}
+	},
+    "scripts":{
+        "pre-install-cmd":"console\\ComposerCallback::preInstall",
+        "post-install-cmd":"console\\ComposerCallback::postInstall",
+        "pre-update-cmd":"console\\ComposerCallback::preUpdate",
+        "post-update-cmd":"console\\ComposerCallback::postUpdate",
+        "post-package-install":[
+            "console\\CreateWebAppCallback::postPackageInstall",
+            "console\\ComposerCallback::postPackageInstall"
+        ],
+        "post-package-update":[
+            "console\\ComposerCallback::postPackageUpdate"
+        ]
+    }
+}
