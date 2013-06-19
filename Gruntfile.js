@@ -31,6 +31,7 @@ module.exports = function(grunt) {
 				closurePath: 'build/closure-compiler',
 				js: 'assets/js/main.js',
 				jsOutputFile: 'assets/js/main.min.js',
+                reportFile: 'build/reports/reports.txt',
 				maxBuffer: 500,
 				options: {
 					compilation_level: 'SIMPLE_OPTIMIZATIONS',
@@ -63,7 +64,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-closure-compiler');
 
 	// Define tasks
-	grunt.registerTask('default', ['watch']);
+	grunt.registerTask('default', ['less', 'concat', 'closure-compiler']);
 	grunt.registerTask('compile-js', ['closure-compiler']);
 
 };
