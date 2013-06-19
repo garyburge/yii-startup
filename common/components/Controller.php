@@ -38,6 +38,6 @@ class Controller extends CController
         }
 
         // register main css file
-        Yii::app()->clientScript->registerCssFile('http://assets.'.$sDomain.'/css/styles.css');
+        Yii::app()->clientScript->registerCssFile('http://assets.'.$sDomain.'/css/main.css');
     }
 }

@@ -1,6 +1,6 @@
 // The wrapper function
 module.exports = function(grunt) {
-	
+
 	// Project and task configuration
 	grunt.initConfig({
 		less: {
@@ -11,8 +11,7 @@ module.exports = function(grunt) {
 					optimization: 2
 				},
 				files: {
-					"web/css/main.css": "app/less/main.less",
-					"web/css/responsive.css": "app/less/responsive.less"
+					"assets/css/main.css": "build/app/less/main.less",
 				}
 			}
 		},
@@ -22,16 +21,16 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				src: [
-					'app/js/app.js'
+					'build/app/js/main.js'
 				],
-				dest: 'web/js/main.js'
+				dest: 'assets/js/main.js'
 			}
 		},
 		"closure-compiler": {
 			main: {
-				closurePath: 'app/lib/closure-compiler',
-				js: 'web/js/main.js',
-				jsOutputFile: 'web/js/main.min.js',
+				closurePath: 'build/closure-compiler',
+				js: 'assets/js/main.js',
+				jsOutputFile: 'assets/js/main.min.js',
 				maxBuffer: 500,
 				options: {
 					compilation_level: 'SIMPLE_OPTIMIZATIONS',
@@ -41,14 +40,14 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			styles: {
-				files: ['app/less/**/*.less'],
+				files: ['build/app/less/**/*.less'],
 				tasks: ['less'],
 				options: {
 					nospawn: true
 				}
 			},
 			scripts: {
-				files: ['app/js/**/*.js'],
+				files: ['build/app/js/**/*.js'],
 				tasks: ['concat'],
 				options: {
 					nospawn: true
