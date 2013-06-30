@@ -40,6 +40,7 @@ class CreateWebAppCallback
             // install frontend, backend
             $app->commandRunner->run(array('yiic', 'webapp', dirname(__FILE__).'/../../frontend/www'));
             $app->commandRunner->run(array('yiic', 'webapp', dirname(__FILE__).'/../../backend/www'));
+            $app->commandRunner->run(array('yiic', 'webapp', dirname(__FILE__).'/../../api/www'));
         }
     }
 
