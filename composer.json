@@ -36,25 +36,6 @@
                      "classmap": "."
                 }
             }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "drcypher/bogo-yii-json-service",
-                "version": "master",
-                "dist": {
-                    "url": "https://github.com/drcypher/bogo-yii-json-service/archive/master.zip",
-                    "type": "zip"
-                },
-                "source": {
-                    "url": "https://github.com/drcypher/bogo-yii-json-service",
-                    "type": "git",
-                    "reference": "master"
-                },
-                "autoload": {
-                     "classmap": "."
-                }
-            }
         }
     ],
 	"require": {
@@ -62,8 +43,7 @@
         "yiiext/migrate-command":"0.7.2",
 		"yiisoft/yii":"1.1.13",
         "clevertech/yiibooster":"1.0.6",
-        "Borales/yii-MultidomainClientScript": "dev-master",
-        "drcypher/bogo-yii-json-service": "dev-master"
+        "Borales/yii-MultidomainClientScript": "dev-master"
 	},
 	"autoload": {
 		"psr-0": {

@@ -27,8 +27,6 @@ class Controller extends CController
      */
     public function init()
     {
-        // register bootstrap
-        //Yii::app()->bootstrap->register();
 
         // extract base domain name (without 'admin.')
         if (0 === strpos(Yii::app()->request->serverName, 'admin.')) {
