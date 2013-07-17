@@ -9,14 +9,14 @@
  *
  */
 return array(
-    'aliases'=>array(
-        'vendor'=>'application.vendor',
-    ),
     'basePath'=>dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..',
     'name'=>'My Console Application',
-//    'aliases'=>array(
-//        'common'=>dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
-//    ),
+    'aliases'=>array(
+        'common'=>dirname(__FILE__).'/../../common',
+        'vendor'=>dirname(__FILE__).'/../../vendor',
+        'bootstrap'=>dirname(__FILE__).'/../../vendor/clevertech/YiiBooster',
+        'multidomain'=>dirname(__FILE__).'/../../vendor/garyburge/yii-MultidomainClientScript',
+    ),
     'components'=>array(
         'db'=>array(
             'connectionString' => 'mysql:host=localhost;dbname=yii-startup',
@@ -29,12 +29,17 @@ return array(
     ),
     'params'=>array(
         'composer.callbacks'=>array(
-            // args for Yii command runner
-            //'yiisoft/yii-install'=>array('yiic', 'webapp', dirname(__FILE__).'/../../frontend/www'),
-            //'post-update'=>array('yiic', 'migrate'),
-            //'post-install'=>array('yiic', 'migrate'),
         ),
     ),
+    // modules
+	'modules'=>array(
+        'user'=>array(
+            'class'=>'user.UserModule',
+        ),
+        'role'=>array(
+            'class'=>'role.RoleModule',
+        ),
+	),
     'commandMap'=>array(
         'migrate'=>array(
             // alias of the path where you extracted the zip file
@@ -47,8 +52,8 @@ return array(
             'applicationModuleName'=>'core',
             // define all available modules (if you do not set this, modules will be set from yii app config)
             'modulePaths'=>array(
-                'user' => 'vendor.mishamx.yii-user.migrations',
-            // ...
+                'user' => 'vendor.garyburge.yii-user.migrations',
+                'role' => 'vendor.garyburge.yii-role.migrations',
             ),
             // you can customize the modules migrations subdirectory which is used when you are using yii module config
             'migrationSubPath'=>'migrations',

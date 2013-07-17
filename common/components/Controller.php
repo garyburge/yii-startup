@@ -31,21 +31,18 @@ class Controller extends CController
      */
     public function init()
     {
-        // get asset url
-        self::$_assetsUrl = Yii::app()->clientScript->getAssetsBaseUrl();
-
         // register main css file
-        Yii::app()->clientScript->registerCssFile(self::$_assetsUrl.'/css/main.css');
+        Yii::app()->clientScript->registerCssFile($this->getAssetsUrl().'/css/main.css');
 
         // register main javascript file
-        Yii::app()->clientScript->registerScriptFile(self::$_assetsUrl.'/js/main.js');
+        Yii::app()->clientScript->registerScriptFile($this->getAssetsUrl().'/js/main.js');
     }
 
     /**
      * return asset url (http://assets.{base_domain})
      * @return string base url
      */
-    public function getAssetUrl()
+    public function getAssetsUrl()
     {
         if (!self::$_assetsUrl) {
             self::$_assetsUrl = Yii::app()->clientScript->getAssetsBaseUrl();

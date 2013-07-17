@@ -1,10 +1,10 @@
 {
-	"name": "garyburge/yii-startup",
-	"description": "A start up application using Yii framework (http://yiiframework.com)",
-	"keywords": ["yii", "webapp"],
-	"homepage": "https://github.com/garyburge/yii-startup",
+	"name": "garyburge/yii-cms",
+    "description": "A test installation for the yii-cms module",
+	"keywords": ["yii", "webapp", "yii-cms"],
+	"homepage": "https://github.com/garyburge/yii-cms",
 	"type": "library",
-	"license": "BSD-3-Clause",
+	"license": "proprietary",
 	"authors": [
 		{
 			"name": "Gary Burge",
@@ -15,35 +15,30 @@
 	"minimum-stability": "dev",
     "repositories":[
         {
-            "type":"composer",
-            "url":"http://packages.phundament.com"
+            "type": "vcs",
+            "url": "https://github.com/garyburge/yii-MultidomainClientScript.git"
         },
         {
-            "type": "package",
-            "package": {
-                "name": "Borales/yii-MultidomainClientScript",
-                "version": "master",
-                "dist": {
-                    "url": "https://github.com/Borales/yii-MultidomainClientScript/archive/master.zip",
-                    "type": "zip"
-                },
-                "source": {
-                    "url": "https://github.com/Borales/yii-MultidomainClientScript",
-                    "type": "git",
-                    "reference": "master"
-                },
-                "autoload": {
-                     "classmap": "."
-                }
-            }
+            "type": "vcs",
+            "url": "https://github.com/garyburge/yii-role.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/garyburge/yii-user.git"
+        },
+        {
+            "type":"composer",
+            "url":"http://packages.phundament.com"
         }
     ],
 	"require": {
 		"php": ">=5.3.2",
-        "yiiext/migrate-command":"0.7.2",
-		"yiisoft/yii":"1.1.13",
-        "clevertech/yiibooster":"1.0.6",
-        "Borales/yii-MultidomainClientScript": "dev-master"
+		"yiisoft/yii": "1.1.13",
+        "yiiext/migrate-command": "0.7.2",
+        "clevertech/yiibooster": "1.0.6",
+        "garyburge/yii-MultidomainClientScript": "dev-master",
+        "garyburge/yii-user": "dev-master",
+        "garyburge/yii-role": "dev-master"
 	},
 	"autoload": {
 		"psr-0": {

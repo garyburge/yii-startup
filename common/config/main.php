@@ -14,8 +14,11 @@ return array(
     // aliases
     'aliases'=>array(
         'common'=>dirname(__FILE__).'/../../common',
+        'vendor'=>dirname(__FILE__).'/../../vendor',
         'bootstrap'=>dirname(__FILE__).'/../../vendor/clevertech/YiiBooster',
-        'multidomain'=>dirname(__FILE__).'/../../vendor/Borales/yii-MultidomainClientScript',
+        'multidomain'=>dirname(__FILE__).'/../../vendor/garyburge/yii-MultidomainClientScript',
+        'user'=>dirname(__FILE__).'/../../vendor/garyburge/yii-user',
+        'role'=>dirname(__FILE__).'/../../vendor/garyburge/yii-role',
     ),
 
 	// autoloading model and component classes
@@ -26,7 +29,14 @@ return array(
 		'application.components.*',
 	),
 
+    // modules
 	'modules'=>array(
+        'user'=>array(
+            'class'=>'user.UserModule',
+        ),
+        'role'=>array(
+            'class'=>'role.RoleModule',
+        ),
 	),
 
 	// application components
@@ -78,16 +88,27 @@ return array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
+        'log'=>array(
+            'class'=>'CLogRouter',
+            'routes'=>array(
+                array(
+                    'class'=>'CFileLogRoute',
+                    'levels'=>'error, warning',
+                ),
+//                array(
+//                    'class'=>'CWebLogRoute',
+//                ),
+            ),
+        ),
 		'urlManager'=>array(
             'urlFormat'=>'path',
             'showScriptName'=>false,
             'urlSuffix'=>'.html',
             'rules'=>array(
-                'gii'=>'gii',
+                //'gii'=>'gii',
                 '<action:\w+>'=>'site/<action>',
                 '<controller:\w+>/<id:\d+>'=>'<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-                '<controller:\w+>/<action:\w+>/<school_year:\d{4}>'=>'<controller>/<action>',
                 '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
             ),
 		),

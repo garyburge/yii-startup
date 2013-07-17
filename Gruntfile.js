@@ -6,15 +6,26 @@ module.exports = function(grunt) {
 		less: {
 			development: {
 				options: {
-					compress: true,
-					yuicompress: true,
+					compress: false,
+					yuicompress: false,
 					optimization: 2
 				},
 				files: {
-					"assets/css/main.css": "build/app/less/main.less",
+					"build/app/css/main.css": "build/less/main.less",
+                    "vendor/clevertech/yiibooster/assets/css/bootstrap.css": "build/less/local-bootstrap.less"
 				}
 			}
 		},
+        clean: {
+            development: ["assets/assets/*"],
+        },
+        copy: {
+            main: {
+                files: [
+                    {expand: true, flatten: false, cwd: "build/app/", src: "**/**", dest: "assets/"}
+                ]
+            }
+        },
 		concat: {
 			options: {
 				separator: "\n\n"
@@ -58,13 +69,16 @@ module.exports = function(grunt) {
 	});
 
 	// Load plugins
+	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-closure-compiler');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
 	// Define tasks
-	grunt.registerTask('default', ['less', 'concat', 'closure-compiler']);
+	grunt.registerTask('default', ['less', 'copy', 'concat', 'closure-compiler']);
 	grunt.registerTask('compile-js', ['closure-compiler']);
+	grunt.registerTask('lespaul', ['less', 'copy', 'clean']);
 
 };
