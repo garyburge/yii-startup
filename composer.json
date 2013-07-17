@@ -56,7 +56,6 @@
         "pre-update-cmd":"console\\ComposerCallback::preUpdate",
         "post-update-cmd":"console\\ComposerCallback::postUpdate",
         "post-package-install":[
-            "console\\CreateWebAppCallback::postPackageInstall",
             "console\\ComposerCallback::postPackageInstall"
         ],
         "post-package-update":[

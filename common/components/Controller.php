@@ -20,22 +20,37 @@ class Controller extends CController
 	 * for more details on how to specify this property.
 	 */
 	public $breadcrumbs=array();
+    /**
+     * assetUrl (assets.base_domain)
+     */
+    static protected $_assetsUrl = false;
 
-    /*
+    /**
      * initialize the controller
      * @void
      */
     public function init()
     {
-
-        // extract base domain name (without 'admin.')
-        if (0 === strpos(Yii::app()->request->serverName, 'admin.')) {
-            $sDomain = substr(Yii::app()->request->serverName, (int)(strpos(Yii::app()->request->serverName, '.')+1));
-        } else {
-            $sDomain = Yii::app()->request->serverName;
-        }
+        // get asset url
+        self::$_assetsUrl = Yii::app()->clientScript->getAssetsBaseUrl();
 
         // register main css file
-        Yii::app()->clientScript->registerCssFile('http://assets.'.$sDomain.'/css/main.css');
+        Yii::app()->clientScript->registerCssFile(self::$_assetsUrl.'/css/main.css');
+
+        // register main javascript file
+        Yii::app()->clientScript->registerScriptFile(self::$_assetsUrl.'/js/main.js');
+    }
+
+    /**
+     * return asset url (http://assets.{base_domain})
+     * @return string base url
+     */
+    public function getAssetUrl()
+    {
+        if (!self::$_assetsUrl) {
+            self::$_assetsUrl = Yii::app()->clientScript->getAssetsBaseUrl();
+        }
+
+        return self::$_assetsUrl;
     }
 }
