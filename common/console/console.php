@@ -16,20 +16,8 @@ return array(
         'vendor'=>dirname(__FILE__).'/../../vendor',
         'bootstrap'=>dirname(__FILE__).'/../../vendor/clevertech/YiiBooster',
         'multidomain'=>dirname(__FILE__).'/../../vendor/garyburge/yii-MultidomainClientScript',
-    ),
-    'components'=>array(
-        'db'=>array(
-            'connectionString' => 'mysql:host=localhost;dbname=yii-startup',
-            'username' => 'yii-startup',
-            'password' => 'NwdGnYuXjcAGuY23',
-            'emulatePrepare' => true,
-            'charset' => 'utf8',
-            'tablePrefix'=>'',
-        ),
-    ),
-    'params'=>array(
-        'composer.callbacks'=>array(
-        ),
+        'user'=>dirname(__FILE__).'/../../vendor/garyburge/yii-user',
+        'role'=>dirname(__FILE__).'/../../vendor/garyburge/yii-role',
     ),
     // modules
 	'modules'=>array(
@@ -52,8 +40,8 @@ return array(
             'applicationModuleName'=>'core',
             // define all available modules (if you do not set this, modules will be set from yii app config)
             'modulePaths'=>array(
-                'user' => 'vendor.garyburge.yii-user.migrations',
-                'role' => 'vendor.garyburge.yii-role.migrations',
+                'user' => 'user.migrations',
+                'role' => 'role.migrations',
             ),
             // you can customize the modules migrations subdirectory which is used when you are using yii module config
             'migrationSubPath'=>'migrations',
@@ -67,5 +55,26 @@ return array(
             #'templateFile' => 'system.cli.migration_template',
         ),
         // composer "hooks", will be executed after package install or update
+    ),
+    'components'=>array(
+        'authManager'=>array(
+            'class'=>'CDbAuthManager',
+            'connectionID'=>'db',
+        ),
+        'db'=>array(
+            'connectionString'=>'mysql:host=localhost;dbname=yii-startup',
+            'username'=>'yii-startup',
+            'password'=>'',
+            'emulatePrepare' => true,
+            'charset' => 'utf8',
+            'tablePrefix'=>'',
+        ),
+    ),
+    'params'=>array(
+        'composer.callbacks'=>array(
+            // args for Yii command runner
+            'post-update'=>array('yiic', 'migrate'),
+            'post-install'=>array('yiic', 'migrate'),
+        ),
     ),
 );

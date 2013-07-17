@@ -95,7 +95,7 @@ class ComposerCallback
      */
     public static function preUpdate(Event $event)
     {
-        echo "Welcome to Phundament Installation 3 via composer\n\nUpdating your application to the lastest available packages...\n";
+        echo "Installation via composer\n\nUpdating your application to the lastest available packages...\n";
         self::runHook('pre-update');
     }
 

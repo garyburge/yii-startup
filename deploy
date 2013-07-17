@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "Create assets directories"
+mkdir assets/assets
+echo "Set Permissions"
+chmod -R g+w assets
+chmod -R g+w frontend/protected/runtime
+chmod -R g+w backend/protected/runtime
+echo "Install node and grunt dependencies"
+npm install
+echo "Install vendor components with composer"
+composer install

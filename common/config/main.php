@@ -59,6 +59,7 @@ return array(
             'class'=>'multidomain.MultidomainClientScript',
             'enableMultidomainAssets'=>true,
             'assetsSubdomain'=>'assets',
+            'subdomainsToRemove'=>array('admin.'),
             'indexedAssetsSubdomain'=>false,
             'coreScriptPosition'=>CClientScript::POS_END,
             'defaultScriptFilePosition'=>CClientScript::POS_END,
