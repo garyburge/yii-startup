@@ -16,7 +16,6 @@ return array(
         'common'=>dirname(__FILE__).'/../../common',
         'vendor'=>dirname(__FILE__).'/../../vendor',
         'bootstrap'=>dirname(__FILE__).'/../../vendor/clevertech/yiibooster',
-        'multidomain'=>dirname(__FILE__).'/../../vendor/garyburge/yii-MultidomainClientScript',
         'user'=>dirname(__FILE__).'/../../vendor/garyburge/yii-user',
         'role'=>dirname(__FILE__).'/../../vendor/garyburge/yii-role',
     ),
@@ -41,10 +40,6 @@ return array(
 
 	// application components
 	'components'=>array(
-        'assetManager'=>array(
-            'basePath'=>dirname(__FILE__).'/../../assets/assets',
-            'baseUrl'=>'http://assets.yii-startup/assets',
-        ),
         'authManager'=>array(
             'class'=>'CDbAuthManager',
             'connectionID'=>'db',
@@ -55,11 +50,6 @@ return array(
             'fontAwesomeCss'=>true,
         ),
         'clientScript'=>array(
-            'class'=>'multidomain.MultidomainClientScript',
-            'enableMultidomainAssets'=>true,
-            'assetsSubdomain'=>'assets',
-            'subdomainsToRemove'=>array('admin.'),
-            'indexedAssetsSubdomain'=>false,
             'coreScriptPosition'=>CClientScript::POS_END,
             'defaultScriptFilePosition'=>CClientScript::POS_END,
             'defaultScriptPosition'=>CClientScript::POS_READY,
@@ -67,7 +57,7 @@ return array(
 		'db'=>array(
             'connectionString'=>'mysql:host=localhost;dbname=yii-startup',
             'username'=>'yii-startup',
-            'password'=>'NwdGnYuXjcAGuY23',
+            'password'=>'qDpP4M4hmW3HEK3T',
             'charset'=>'utf8',
             'tablePrefix'=>'',
             'emulatePrepare'=>true,

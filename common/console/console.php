@@ -10,16 +10,17 @@
  */
 return array(
     'basePath'=>dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..',
-    'name'=>'My Console Application',
+    'name'=>'Yii-Startup',
+
     // aliases
     'aliases'=>array(
         'common'=>dirname(__FILE__).'/../../common',
         'vendor'=>dirname(__FILE__).'/../../vendor',
         'bootstrap'=>dirname(__FILE__).'/../../vendor/clevertech/yiibooster',
-        'multidomain'=>dirname(__FILE__).'/../../vendor/garyburge/yii-MultidomainClientScript',
         'user'=>dirname(__FILE__).'/../../vendor/garyburge/yii-user',
         'role'=>dirname(__FILE__).'/../../vendor/garyburge/yii-role',
     ),
+
     // modules
 	'modules'=>array(
         'user'=>array(
@@ -29,6 +30,28 @@ return array(
             'class'=>'role.RoleModule',
         ),
 	),
+
+    // components
+    'components'=>array(
+        'db'=>array(
+            'connectionString'=>'mysql:host=localhost;dbname=yii-startup',
+            'username'=>'yii-startup',
+            'password'=>'qDpP4M4hmW3HEK3T',
+            'emulatePrepare' => true,
+            'charset' => 'utf8',
+            'tablePrefix'=>'',
+        ),
+    ),
+
+    // params
+    'params'=>array(
+        'composer.callbacks'=>array(
+            // args for Yii command runner
+            'post-update'=>array('yiic', 'migrate'),
+            'post-install'=>array('yiic', 'migrate'),
+        ),
+    ),
+
     'commandMap'=>array(
         'migrate'=>array(
             // alias of the path where you extracted the zip file
@@ -56,26 +79,5 @@ return array(
             #'templateFile' => 'system.cli.migration_template',
         ),
         // composer "hooks", will be executed after package install or update
-    ),
-    'components'=>array(
-        'authManager'=>array(
-            'class'=>'CDbAuthManager',
-            'connectionID'=>'db',
-        ),
-        'db'=>array(
-            'connectionString'=>'mysql:host=localhost;dbname=yii-startup',
-            'username'=>'yii-startup',
-            'password'=>'',
-            'emulatePrepare' => true,
-            'charset' => 'utf8',
-            'tablePrefix'=>'',
-        ),
-    ),
-    'params'=>array(
-        'composer.callbacks'=>array(
-            // args for Yii command runner
-            'post-update'=>array('yiic', 'migrate'),
-            'post-install'=>array('yiic', 'migrate'),
-        ),
     ),
 );
