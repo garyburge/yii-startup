@@ -50,7 +50,6 @@ return array(
             'connectionID'=>'db',
         ),
         'bootstrap'=>array(
-            //'class'=>'bootstrap.components.TbApi',
             'class'=>'bootstrap.components.Bootstrap',
             'responsiveCss'=>true,
             'fontAwesomeCss'=>true,
