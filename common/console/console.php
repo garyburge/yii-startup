@@ -11,6 +11,7 @@
 return array(
     'basePath'=>dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..',
     'name'=>'My Console Application',
+    // aliases
     'aliases'=>array(
         'common'=>dirname(__FILE__).'/../../common',
         'vendor'=>dirname(__FILE__).'/../../vendor',
