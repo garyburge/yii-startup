@@ -73,7 +73,7 @@ return array(
             'emulatePrepare'=>true,
             'nullConversion'=>PDO::NULL_EMPTY_STRING,
             'enableParamLogging'=>false,
-            'enableProfilling'=>false,
+            'enableProfiling'=>false,
 		),
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
