@@ -15,7 +15,7 @@ return array(
     'aliases'=>array(
         'common'=>dirname(__FILE__).'/../../common',
         'vendor'=>dirname(__FILE__).'/../../vendor',
-        'bootstrap'=>dirname(__FILE__).'/../../vendor/clevertech/YiiBooster',
+        'bootstrap'=>dirname(__FILE__).'/../../vendor/clevertech/yiibooster',
         'multidomain'=>dirname(__FILE__).'/../../vendor/garyburge/yii-MultidomainClientScript',
         'user'=>dirname(__FILE__).'/../../vendor/garyburge/yii-user',
         'role'=>dirname(__FILE__).'/../../vendor/garyburge/yii-role',
