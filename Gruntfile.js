@@ -17,7 +17,7 @@ module.exports = function(grunt) {
 			}
 		},
         clean: {
-            development: ["assets/assets/*"],
+            development: ["assets/*"],
         },
         copy: {
             main: {
@@ -79,6 +79,6 @@ module.exports = function(grunt) {
 	// Define tasks
 	grunt.registerTask('default', ['less', 'copy', 'concat', 'closure-compiler']);
 	grunt.registerTask('compile-js', ['closure-compiler']);
-	grunt.registerTask('lespaul', ['less', 'copy', 'clean']);
+	grunt.registerTask('lespaul', ['less', 'clean', 'copy']);
 
 };

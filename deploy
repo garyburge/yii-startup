@@ -1,22 +1,61 @@
 #!/bin/bash
-echo "Create assets directories"
-mkdir assets/assets
-echo "Create modules directores"
-mkdir frontend/modules
-mkdir backend/modules
-echo "Set Permissions"
-chmod -R g+w assets
-chmod -R g+w frontend/protected/runtime
-chmod -R g+w frontend/protected/controllers
-chmod -R g+w frontend/protected/modules
-chmod -R g+w frontend/protected/models
-chmod -R g+w frontend/protected/views
-chmod -R g+w backend/protected/runtime
-chmod -R g+w backend/protected/controllers
-chmod -R g+w backend/protected/modules
-chmod -R g+w backend/protected/models
-chmod -R g+w backend/protected/views
+
+echo "Checking for symlink frontend/www/assets"
+if ! [ -L frontend/www/assets ]; then
+    echo "Creating symlink frontend/www/assets to assets directory"
+    SYMASSETS=/assets
+    SYMLINK=$(readlink -f frontend/www)
+    echo $SYMLINK$SYMASSETS
+    TARGET=$(readlink -f assets)
+    echo $TARGET
+    ln -s $TARGET $SYMLINK$SYMASSETS
+fi
+
+echo "Checking for symlink backend/www/assets"
+if ! [ -L backend/www/assets ]; then
+    echo "Creating symlink backend/www/assets to assets directory"
+    SYMASSETS=/assets
+    SYMLINK=$(readlink -f backend/www)
+    echo $SYMLINK$SYMASSETS
+    TARGET=$(readlink -f assets)
+    echo $TARGET
+    ln -s $TARGET $SYMLINK$SYMASSETS
+fi
+
+echo "Create assets directory"
+if ! [ -d assets ] ; then
+    mkdir assets
+    chmod -R g+w assets
+fi
+
+echo "Set permissions"
+if ! [ -w frontend/protected/runtime ]; then
+    chmod -R g+w frontend/protected/runtime
+fi
+if ! [ -w frontend/protected/controllers ]; then
+    chmod -R g+w frontend/protected/controllers
+fi
+if ! [ -w frontend/protected/models ]; then
+    chmod -R g+w frontend/protected/models
+fi
+if ! [ -w frontend/protected/views ]; then
+    chmod -R g+w frontend/protected/views
+fi
+if ! [ -w backend/protected/runtime ]; then
+    chmod -R g+w backend/protected/runtime
+fi
+if ! [ -w backend/protected/controllers ]; then
+    chmod -R g+w backend/protected/controllers
+fi
+if ! [ -w backend/protected/models ]; then
+    chmod -R g+w backend/protected/models
+fi
+if ! [ -w backend/protected/views ]; then
+    chmod -R g+w backend/protected/views
+fi
+
 echo "Install node and grunt dependencies"
 npm install
+
 echo "Install vendor components with composer"
 composer install

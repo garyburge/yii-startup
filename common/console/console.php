@@ -33,6 +33,10 @@ return array(
 
     // components
     'components'=>array(
+        'authManager'=>array(
+            'class'=>'CDbAuthManager',
+            'connectionID'=>'db',
+        ),
         'db'=>array(
             'connectionString'=>'mysql:host=localhost;dbname=yii-startup',
             'username'=>'yii-startup',

@@ -1,3 +1,7 @@
+# character set
+AddDefaultCharset utf-8
+
+# url rewrites
 RewriteEngine on
 
 # if a directory or a file exists, use it directly
