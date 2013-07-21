@@ -3,20 +3,8 @@
 echo "Create assets directory"
 if ! [ -d assets ] ; then
     mkdir assets
-    chmod -R g+w assets
 fi
-
-echo "Create frontend/www/assets directory"
-if ! [ -d frontend/www/assets ] ; then
-    mkdir frontend/www/assets
-    chmod -R g+w frontend/www/assets
-fi
-
-echo "Create backend/www/assets directory"
-if ! [ -d backend/www/assets ] ; then
-    mkdir backend/www/assets
-    chmod -R g+w backend/www/assets
-fi
+chmod -R g+w assets
 
 echo "Checking for symlink frontend/www/assets"
 if ! [ -L frontend/www/assets ]; then
@@ -41,30 +29,15 @@ if ! [ -L backend/www/assets ]; then
 fi
 
 echo "Set permissions"
-if ! [ -w frontend/protected/runtime ]; then
-    chmod -R g+w frontend/protected/runtime
-fi
-if ! [ -w frontend/protected/controllers ]; then
-    chmod -R g+w frontend/protected/controllers
-fi
-if ! [ -w frontend/protected/models ]; then
-    chmod -R g+w frontend/protected/models
-fi
-if ! [ -w frontend/protected/views ]; then
-    chmod -R g+w frontend/protected/views
-fi
-if ! [ -w backend/protected/runtime ]; then
-    chmod -R g+w backend/protected/runtime
-fi
-if ! [ -w backend/protected/controllers ]; then
-    chmod -R g+w backend/protected/controllers
-fi
-if ! [ -w backend/protected/models ]; then
-    chmod -R g+w backend/protected/models
-fi
-if ! [ -w backend/protected/views ]; then
-    chmod -R g+w backend/protected/views
-fi
+chmod -R g+w frontend/protected/runtime
+chmod -R g+w frontend/protected/controllers
+chmod -R g+w frontend/protected/models
+chmod -R g+w frontend/protected/views
+
+chmod -R g+w backend/protected/runtime
+chmod -R g+w backend/protected/controllers
+chmod -R g+w backend/protected/models
+chmod -R g+w backend/protected/views
 
 echo "Install node and grunt dependencies"
 npm install
