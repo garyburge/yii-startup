@@ -1,5 +1,23 @@
 #!/bin/bash
 
+echo "Create assets directory"
+if ! [ -d assets ] ; then
+    mkdir assets
+    chmod -R g+w assets
+fi
+
+echo "Create frontend/www/assets directory"
+if ! [ -d frontend/www/assets ] ; then
+    mkdir frontend/www/assets
+    chmod -R g+w frontend/www/assets
+fi
+
+echo "Create backend/www/assets directory"
+if ! [ -d backend/www/assets ] ; then
+    mkdir backend/www/assets
+    chmod -R g+w backend/www/assets
+fi
+
 echo "Checking for symlink frontend/www/assets"
 if ! [ -L frontend/www/assets ]; then
     echo "Creating symlink frontend/www/assets to assets directory"
@@ -20,12 +38,6 @@ if ! [ -L backend/www/assets ]; then
     TARGET=$(readlink -f assets)
     echo $TARGET
     ln -s $TARGET $SYMLINK$SYMASSETS
-fi
-
-echo "Create assets directory"
-if ! [ -d assets ] ; then
-    mkdir assets
-    chmod -R g+w assets
 fi
 
 echo "Set permissions"
