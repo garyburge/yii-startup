@@ -6,27 +6,22 @@ if ! [ -d assets ] ; then
 fi
 chmod -R g+w assets
 
-echo "Checking for symlink frontend/www/assets"
-if ! [ -L frontend/www/assets ]; then
-    echo "Creating symlink frontend/www/assets to assets directory"
-    SYMASSETS=/assets
-    SYMLINK=$(readlink -f frontend/www)
-    echo $SYMLINK$SYMASSETS
-    TARGET=$(readlink -f assets)
-    echo $TARGET
-    ln -s $TARGET $SYMLINK$SYMASSETS
-fi
+echo "symlink for frontend/www/assets"
+echo "Creating symlink frontend/www/assets to assets directory"
+SYMASSETS=/assets
+SYMLINK=$(readlink -f frontend/www)
+echo $SYMLINK$SYMASSETS
+TARGET=$(readlink -f assets)
+echo $TARGET
+ln -s $TARGET $SYMLINK$SYMASSETS
 
-echo "Checking for symlink backend/www/assets"
-if ! [ -L backend/www/assets ]; then
-    echo "Creating symlink backend/www/assets to assets directory"
-    SYMASSETS=/assets
-    SYMLINK=$(readlink -f backend/www)
-    echo $SYMLINK$SYMASSETS
-    TARGET=$(readlink -f assets)
-    echo $TARGET
-    ln -s $TARGET $SYMLINK$SYMASSETS
-fi
+echo "Creating symlink backend/www/assets to assets directory"
+SYMASSETS=/assets
+SYMLINK=$(readlink -f backend/www)
+echo $SYMLINK$SYMASSETS
+TARGET=$(readlink -f assets)
+echo $TARGET
+ln -s $TARGET $SYMLINK$SYMASSETS
 
 echo "Set permissions"
 chmod -R g+w frontend/protected/runtime
