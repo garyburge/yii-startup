@@ -48,6 +48,8 @@ return array(
             'class'=>'bootstrap.components.Bootstrap',
             'responsiveCss'=>true,
             'fontAwesomeCss'=>true,
+            'enableBootboxJS'=>false,
+            'enableNotifierJS'=>false,
         ),
         'clientScript'=>array(
             'coreScriptPosition'=>CClientScript::POS_END,
