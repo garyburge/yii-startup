@@ -1,8 +1,8 @@
 {
-	"name": "garyburge/yii-cms",
-    "description": "A test installation for the yii-cms module",
-	"keywords": ["yii", "webapp", "yii-cms"],
-	"homepage": "https://github.com/garyburge/yii-cms",
+	"name": "garyburge/yii-startup",
+    "description": "A start up application using Yii framework (http://yiiframework.com)",
+	"keywords": ["yii", "webapp", "yii-startup"],
+	"homepage": "https://github.com/garyburge/yii-startup",
 	"type": "library",
 	"license": "proprietary",
 	"authors": [
