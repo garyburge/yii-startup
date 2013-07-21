@@ -1,9 +1,0 @@
-if ! [ -L frontend/www/assets ]; then
-    echo "Creating symlink frontend/www/assets to assets directory"
-    SYMASSETS=/assets
-    SYMLINK=$(readlink -f frontend/www)
-    echo $SYMLINK$SYMASSETS
-    TARGET=$(readlink -f assets)
-    echo $TARGET
-    ln -s $TARGET $SYMLINK$SYMASSETS
-fi
