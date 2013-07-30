@@ -2,9 +2,8 @@
 /* @var $this SiteController */
 /* @var $model ContactForm */
 /* @var $form TbActiveForm */
-
-$this->pageTitle=Yii::app()->name . ' - Contact Us';
-$this->breadcrumbs=array(
+$this->pageTitle = Yii::app()->name.' - Contact Us';
+$this->breadcrumbs = array(
 	'Contact',
 );
 ?>
@@ -12,11 +11,9 @@ $this->breadcrumbs=array(
 <h1>Contact Us</h1>
 
 <?php if(Yii::app()->user->hasFlash('contact')): ?>
-
     <?php $this->widget('bootstrap.widgets.TbAlert', array(
         'alerts'=>array('contact'),
     )); ?>
-
 <?php else: ?>
 
 <p>
